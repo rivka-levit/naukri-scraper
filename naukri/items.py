@@ -30,4 +30,4 @@ class JobItem(scrapy.Item):
         output_processor=Join()
     )
     location = scrapy.Field(output_processor=Join())
-    date = scrapy.Field(output_processor=MapCompose(date_out))
+    data = scrapy.Field(output_processor=MapCompose(date_out))
