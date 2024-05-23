@@ -18,7 +18,7 @@ class RemoteJobsSpider(scrapy.Spider):
         payload = json.loads(response.body)
 
         for job in payload['jobDetails']:
-            i = ItemLoader(item=JobItem())
+            i = ItemLoader(item=JobItem(), response=response)
             i.add_value('title', job['title'])
             i.add_value('company', job['companyName'])
             i.add_value('description', job['jobDescription'])
