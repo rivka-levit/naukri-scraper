@@ -27,6 +27,6 @@ class RemoteJobsSpider(scrapy.Spider):
                 [x['label'] for x in job['placeholders']
                  if x['type'] == 'location']
             )
-            i.add_value('data', job['createdDate'])
+            i.add_value('date', job['createdDate'])
 
             yield i.load_item()

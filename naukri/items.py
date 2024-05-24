@@ -1,6 +1,6 @@
 import scrapy
 
-from scrapy.loader.processors import MapCompose, Join
+from itemloaders.processors import MapCompose, Join
 
 from datetime import date
 from w3lib.html import remove_tags
@@ -30,4 +30,7 @@ class JobItem(scrapy.Item):
         output_processor=Join()
     )
     location = scrapy.Field(output_processor=Join())
-    data = scrapy.Field(output_processor=MapCompose(date_out))
+    date = scrapy.Field(
+        input_processor=MapCompose(date_out),
+        output_processor=Join()
+    )
